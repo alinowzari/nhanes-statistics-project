@@ -1,0 +1,13 @@
+# Python bytecode & environments
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.venv/
+env/
+
+# Large raw datasets (must not be committed to GitHub)
+data/*.XPT
+data/*.xpt
+data/*.csv
+*.zip
