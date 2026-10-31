@@ -1,0 +1,96 @@
+===========================================================================
+NHANES 2021-2023 PHASE 1 STATISTICAL OUTPUT LEDGER
+===========================================================================
+
+[1] SAMPLE ATTRITION FLOW (Tasks A1 & A4)
+  DEMO_L raw count:                     11,933
+  BMX_L raw count:                      8,860
+  BPXO_L raw count:                     7,801
+  Merged intersection on SEQN:          7,801
+  Excluded Age < 20 years:              1,737
+  Adult Cohort (Age >= 20):             6,064
+  Excluded missing BMI/SBP/Weight:      259
+  Final Analytical Sample (N):          5,805
+
+[2] DATA QUALITY & OUTLIER AUDIT (Task 5)
+  Duplicate SEQN IDs in adult cohort:   0
+  Missing BMXBMI in adult cohort:       94
+  Missing BPXOSY1 in adult cohort:      201
+  Missing/Zero WTMEC2YR in adults:      0
+  Implausible BMI (<10 or >100):        0
+  Implausible SBP (<50 or >300):        0
+  Logical violations (SBP <= DBP):      0
+  BMI Tukey 1.5*IQR fences:             [11.50, 46.70] -> 157 outside (13 > 3*IQR)
+  SBP Tukey 1.5*IQR fences:             [75.50, 167.50] -> 134 outside (9 > 3*IQR)
+
+[3] CATEGORICAL FREQUENCY TABLES (Task 6)
+--- Biological Sex ---
+Category  Count (n)  Unweighted (%)  Weighted (%)
+    Male       2619           45.12         51.11
+  Female       3186           54.88         48.89
+
+--- Age Cohort ---
+           Category  Count (n)  Unweighted (%)  Weighted (%)
+20-39 (Young Adult)       1482           25.53         35.02
+40-59 (Middle-Aged)       1668           28.73         33.80
+  60+ (Older Adult)       2655           45.74         31.18
+
+--- Clinical BMI Category ---
+              Category  Count (n)  Unweighted (%)  Weighted (%)
+   Underweight (<18.5)         83            1.43          1.52
+    Normal (18.5-24.9)       1475           25.41         26.08
+Overweight (25.0-29.9)       1872           32.25         32.28
+        Obese (>=30.0)       2375           40.91         40.12
+
+--- Systolic BP Category ---
+             Category  Count (n)  Unweighted (%)  Weighted (%)
+        Normal (<120)       2763           47.60         51.33
+   Elevated (120-129)       1225           21.10         21.61
+Stage 1 HTN (130-139)        873           15.04         14.08
+  Stage 2 HTN (>=140)        944           16.26         12.98
+
+[4] PARAMETRIC & NON-PARAMETRIC SUMMARY METRICS (Tasks 6 & 7)
+          Variable    n   Mean    SD  Median  Q1 (25th)  Q3 (75th)  IQR  Min   P5   P95   Max  Skewness (g1)
+      BMI (kg/m^2) 5805  29.73  7.15    28.4       24.7       33.5  8.8 11.1 20.4  43.1  68.9          1.109
+Systolic BP (mmHg) 5805 123.02 18.47   121.0      110.0      133.0 23.0 75.0 98.0 156.8 225.0          0.904
+       Age (Years) 5805  53.85 17.09    57.0       39.0       68.0 29.0 20.0 25.0  80.0  80.0         -0.285
+
+[5] UNWEIGHTED VS. SURVEY-WEIGHTED COMPARISON (Tasks A2 & A3)
+                  Parameter / Indicator  Unweighted  Weighted (WTMEC2YR)  Difference (Weighted - Raw)
+                      Mean BMI (kg/m^2)       29.73                29.60                        -0.13
+                     SD of BMI (kg/m^2)        7.15                 7.10                        -0.05
+                Mean Systolic BP (mmHg)      123.02               121.22                        -1.80
+               SD of Systolic BP (mmHg)       18.47                17.50                        -0.97
+                       Mean Age (Years)       53.85                48.88                        -4.97
+      Obesity Prevalence (BMI >= 30, %)       40.91                40.12                        -0.79
+Elevated SBP Prevalence (SBP >= 130, %)       31.30                27.06                        -4.24
+
+[6] DESCRIPTIVE BIVARIATE COMPARISONS (Task 9)
+--- Systolic BP (mmHg) by BMI Category & Sex ---
+                       Subgroup    n   Mean    SD  Median   IQR  Weighted Mean
+   Underweight (<18.5) | Female   60 115.45 22.97   111.5 20.25         112.29
+     Underweight (<18.5) | Male   23 114.52 22.99   109.0 12.50         111.51
+    Normal (18.5-24.9) | Female  836 119.56 19.22   115.5 23.00         116.80
+      Normal (18.5-24.9) | Male  639 125.80 18.19   122.0 20.00         123.48
+Overweight (25.0-29.9) | Female  915 121.43 19.45   118.0 26.00         119.16
+  Overweight (25.0-29.9) | Male  957 125.39 16.99   123.0 21.00         123.02
+        Obese (>=30.0) | Female 1375 121.61 18.90   118.0 25.00         119.78
+          Obese (>=30.0) | Male 1000 125.89 16.30   124.0 19.25         125.44
+
+--- Systolic BP (mmHg) by Age Group & Sex ---
+                    Subgroup    n   Mean    SD  Median   IQR  Weighted Mean
+20-39 (Young Adult) | Female  828 108.95 11.60   108.0 13.00         108.30
+  20-39 (Young Adult) | Male  654 119.08 11.49   119.0 15.00         118.63
+40-59 (Middle-Aged) | Female  920 118.62 16.78   117.0 21.00         117.91
+  40-59 (Middle-Aged) | Male  748 124.78 16.05   123.0 18.25         124.98
+  60+ (Older Adult) | Female 1438 129.25 20.22   127.0 26.00         129.96
+    60+ (Older Adult) | Male 1217 129.58 19.04   128.0 23.00         129.30
+
+--- BMI (kg/m^2) by Age Group & Sex ---
+                    Subgroup    n  Mean   SD  Median   IQR  Weighted Mean
+20-39 (Young Adult) | Female  828 29.91 8.56   27.80 11.30          29.23
+  20-39 (Young Adult) | Male  654 28.63 6.68   27.30  8.05          28.75
+40-59 (Middle-Aged) | Female  920 30.81 8.05   29.50 10.70          30.84
+  40-59 (Middle-Aged) | Male  748 30.06 6.97   28.60  8.00          30.23
+  60+ (Older Adult) | Female 1438 29.82 6.96   28.65  9.38          29.45
+    60+ (Older Adult) | Male 1217 29.08 5.66   28.30  7.00          29.07
